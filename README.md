@@ -1,5 +1,9 @@
-### _WARNING - Scripts are Currently Broken_
-_We recently refactored the monolithic docker image used within the [Dependabot Core][dependabot-core] library into one-image-per-ecosystem. Unfortunately, that broke the scripts in this repo, and we haven't had time to update them yet. We are aware of the problem and hope to provide a solution soon._
+# This repo is deprecated!
+
+> [!CAUTION]
+> Using dependabot-script is no longer the preferred way to run a self-hosted version of Dependabot. See the [Example CLI Usage](https://github.com/dependabot/example-cli-usage) repo for how to use the [Dependabot CLI](https://github.com/dependabot/cli) instead for this purpose.
+
+----
 
 # Dependabot Script
 
@@ -185,7 +189,7 @@ Parsing dependencies information
 #### Running scripts with dependabot-core Dockerfile only
 
 The dependabot-core `Dockerfile` installs dependencies as the `dependabot` user,
-so volume mouning won't work unless you build the image by passing in the
+so volume mounting won't work unless you build the image by passing in the
 `USER_UID` and `USER_GID` arguments. This creates the `dependabot` user with the
 same IDs ensuring it owns the mounted files and can write to them from within
 the container.
@@ -241,7 +245,7 @@ Thus `https://[gitlab.domain/org/dependabot-script-repo]/pipeline_schedules` das
 * Clone or mirror this repository.
 * Copy `.gitlab-ci.example.yml` to `.gitlab-ci.yml` or set [a custom CI config path for direct usage](https://docs.gitlab.com/ee/ci/pipelines/settings.html#specify-a-custom-cicd-configuration-file).
 * [Set the required global variables](https://docs.gitlab.com/ee/ci/variables/#variables) used in [`./generic-update-script.rb`][generic-script].
-* Create [a pipeline schedule](https://docs.gitlab.com/ee/user/project/pipelines/schedules.html) for each managed repository.
+* Create [a pipeline schedule](https://docs.gitlab.com/ee/ci/pipelines/schedules.html) for each managed repository.
 * Set in the schedule the required variables:
   * `PROJECT_PATH`: `group/repository`
   * `PACKAGE_MANAGER_SET`: `bundler,composer,npm_and_yarn`
